@@ -31,7 +31,7 @@ Or with docker-compose yml:
 version: '2'
 services:
   firewall:
-  	restart: always
+    restart: always
     image: virtusai/docker-firewall
     container_name: docker-firewall
     environment:
