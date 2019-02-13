@@ -5,7 +5,7 @@ Firewall rules for Docker published ports (based on [confd-firewall](https://hub
 Background
 ----------
 
-This image allows firewall rules to be managed by a docker container which blocks traffic to the public interface from non-whitelisted addresses. Iptable rules are added to the `mangle` table.
+This image allows firewall rules to be managed by a docker container which blocks traffic to the public interface from non-whitelisted addresses. Iptable rules are added to the [`filter` table on both `INPUT` and `DOCKER-USER` chains](https://unrouted.io/2017/08/15/docker-firewall/).
 
 Environment Variables
 ---------------------
@@ -49,13 +49,13 @@ List affected rules:
 *Raw*
 
 ```
-$ sudo iptables-save -t mangle
+$ sudo iptables-save -t filter
 ```
 
 *Formatted*
 
 ```
-$ sudo iptables -L -n -v -t mangle
+$ sudo iptables -L -n -v -t filter
 ```
 
 To persist the firewall rules, just run the container with the `--restart=always` option.
