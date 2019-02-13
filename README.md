@@ -25,7 +25,7 @@ Run with:
 $ docker run -d --name docker-firewall --env FW_SERVICE=example --env FW_PROTO=tcp --env FW_PORTS=6379 --env FW_STATIC="8.9.10.11/30,18.19.20.21/30" --restart=always --cap-add=NET_ADMIN --net=host virtusai/docker-firewall
 ```
 
-Or with docker-compose yml:
+Or with docker-compose.yml:
 
 ```
 version: '2'
